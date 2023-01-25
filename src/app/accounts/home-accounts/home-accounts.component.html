@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <app-add-account (msgToHome)="addNewAccount($event)"></app-add-account>
+
+            <app-item-account *ngFor="let acc of listAccounts" [oneAccount]="acc">
+
+            </app-item-account>
+        </div>
+    </div>
+</div>
