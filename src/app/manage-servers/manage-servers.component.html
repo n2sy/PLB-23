@@ -1,0 +1,9 @@
+<div>
+    <ol class="list-group">
+        <li class="list-group-item" *ngFor="let serv of allServers" [ngClass]="affecterClass(serv.statut)">
+            {{ serv.nom }} | {{ serv.type }} | {{ serv.date_d }}
+
+            <span class="badge bg-secondary">{{ serv.statut}}</span>
+        </li>
+    </ol>
+</div>
