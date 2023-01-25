@@ -1,0 +1,13 @@
+<h1>je suis {{ nom }} et j'ai {{ age }} ans</h1>
+
+
+
+<div [hidden]="hd" [style.backgroundColor]="bgColor">Exemple de Property Binding</div>
+
+<button (click)="clickHandler()" class="btn btn-primary">Click me</button>
+
+<input [(ngModel)]="nom" type="text" class="form-control">
+
+<hr>
+
+<app-child (msgToParent)="traitement($event)" [txtColor]="'blue'"></app-child>
