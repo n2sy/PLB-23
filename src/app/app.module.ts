@@ -22,6 +22,8 @@ import { FirstService } from './services/first.service';
 import { RecruterComponent } from './recruter/recruter.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { PLB_ROUTING } from './app.routing';
+import { NavbarComponent } from './navbar/navbar.component';
+import { InfosComponent } from './infos/infos.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { PLB_ROUTING } from './app.routing';
     NoImagePipe,
     RecruterComponent,
     AccueilComponent,
+    NavbarComponent,
+    InfosComponent,
   ],
   imports: [BrowserModule, FormsModule, PLB_ROUTING],
   providers: [],
