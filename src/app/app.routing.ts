@@ -13,13 +13,27 @@ const myRoutes: Routes = [
   { path: '', component: AccueilComponent },
   {
     path: 'cv',
+    component: CvComponent,
     children: [
-      { path: '', component: CvComponent },
       { path: 'add', component: AddComponent },
-      { path: ':id', component: InfosComponent },
-      { path: ':id/edit', component: UpdateComponent },
+      {
+        path: ':id',
+        children: [
+          { path: '', component: InfosComponent },
+          { path: 'edit', component: UpdateComponent },
+        ],
+      },
     ],
   },
+  //   {
+  //     path: 'cv',
+  //     children: [
+  //       { path: '', component: CvComponent },
+  //       { path: 'add', component: AddComponent },
+  //       { path: ':id', component: InfosComponent },
+  //       { path: ':id/edit', component: UpdateComponent },
+  //     ],
+  //   },
   { path: 'accounts', component: HomeAccountsComponent },
   { path: 'ms-word', component: MsWordComponent },
   { path: 'servers', component: ManageServersComponent },
