@@ -27,7 +27,7 @@ export class ManageServersComponent {
     },
     {
       nom: 'Nidhal Server',
-      type: 'large',
+      type: 'medium',
       date_d: new Date(),
       statut: 'stable',
     },

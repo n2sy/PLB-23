@@ -1,9 +1,30 @@
 <div>
+    <input type="text" class="form-control">
+    <br>
     <ol class="list-group">
+
+
         <li class="list-group-item" *ngFor="let serv of allServers" [ngClass]="affecterClass(serv.statut)">
-            {{ serv.nom }} | {{ serv.type }} | {{ serv.date_d }}
+            {{ serv.nom | short:10}} | {{ serv.type | titlecase }} | {{ serv.date_d | date:'fullDate' | uppercase}}
+
+
 
             <span class="badge bg-secondary">{{ serv.statut}}</span>
         </li>
+
     </ol>
 </div>
+
+<!-- Version avec ng-container
+<div>
+    <ol class="list-group">
+        <ng-container *ngFor="let serv of allServers">
+
+            <li class="list-group-item" [ngClass]="affecterClass(serv.statut)" *ngIf="serv.type == 'small'">
+                {{ serv.nom }} | {{ serv.type }} | {{ serv.date_d }}
+
+                <span class="badge bg-secondary">{{ serv.statut}}</span>
+            </li>
+        </ng-container>
+    </ol>
+</div> -->
