@@ -11,32 +11,36 @@ import { UpdateComponent } from './update/update.component';
 
 const myRoutes: Routes = [
   { path: '', component: AccueilComponent },
-  {
-    path: 'cv',
-    component: CvComponent,
-    children: [
-      { path: 'add', component: AddComponent },
-      {
-        path: ':id',
-        children: [
-          { path: '', component: InfosComponent },
-          { path: 'edit', component: UpdateComponent },
-        ],
-      },
-    ],
-  },
   //   {
   //     path: 'cv',
+  //     component: CvComponent,
   //     children: [
-  //       { path: '', component: CvComponent },
   //       { path: 'add', component: AddComponent },
-  //       { path: ':id', component: InfosComponent },
-  //       { path: ':id/edit', component: UpdateComponent },
+  //       {
+  //         path: ':id',
+  //         children: [
+  //           { path: '', component: InfosComponent },
+  //           { path: 'edit', component: UpdateComponent },
+  //         ],
+  //       },
   //     ],
   //   },
+  {
+    path: 'cv',
+    children: [
+      { path: '', component: CvComponent },
+      { path: 'add', component: AddComponent },
+      { path: ':id', component: InfosComponent },
+      { path: ':id/edit', component: UpdateComponent },
+    ],
+  },
   { path: 'accounts', component: HomeAccountsComponent },
   { path: 'ms-word', component: MsWordComponent },
   { path: 'servers', component: ManageServersComponent },
+  {
+    path: 'show-serv',
+    loadChildren: () => import('./sub/sub.module').then((m) => m.SubModule),
+  },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: 'not-found' },
 ];

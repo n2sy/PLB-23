@@ -1,0 +1,6 @@
+<div>
+    <h3> {{ oneServer.nom }} </h3>
+    <hr>
+    <p>Le statut du serveur est {{ oneServer.statut }} </p>
+    <button routerLink="update" [disabled]="showEditBtn" class="btn btn-info">Editer</button>
+</div>
