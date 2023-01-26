@@ -1,0 +1,8 @@
+<div *ngIf="tabRec.length">
+    <h2>Liste des recrues</h2>
+    <hr>
+    <ol class="list-group">
+        <app-item *ngFor="let rec of tabRec" [oneCandidat]="rec">
+        </app-item>
+    </ol>
+</div>
