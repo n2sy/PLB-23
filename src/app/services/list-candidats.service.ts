@@ -18,6 +18,10 @@ export class ListCandidatsService {
     return this.tabCandidats;
   }
 
+  getCandidatById(targetId) {
+    return this.tabCandidats.find((c) => c._id == targetId);
+  }
+
   addCandidat() {
     this.tabCandidats.push(
       new Candidat(1, 'NEW', 'CANDIDAT', 22, 'Ingénieur', 'bart.jpeg')
