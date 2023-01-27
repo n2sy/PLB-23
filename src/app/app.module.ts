@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -32,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { addTokenInterceptorProvider } from './add-token.interceptor';
 import { LoginGuard } from './login.guard';
 import { LogoutGuard } from './logout.guard';
+import { ReactFormComponent } from './react-form/react-form.component';
 
 @NgModule({
   declarations: [
@@ -59,8 +60,15 @@ import { LogoutGuard } from './logout.guard';
     UpdateComponent,
     NotFoundComponent,
     LoginComponent,
+    ReactFormComponent,
   ],
-  imports: [BrowserModule, FormsModule, PLB_ROUTING, HttpClientModule],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
+    PLB_ROUTING,
+    HttpClientModule,
+  ],
   providers: [addTokenInterceptorProvider, LoginGuard, LogoutGuard],
   bootstrap: [AppComponent],
 })

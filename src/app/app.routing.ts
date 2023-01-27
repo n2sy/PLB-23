@@ -11,6 +11,7 @@ import { LogoutGuard } from './logout.guard';
 import { ManageServersComponent } from './manage-servers/manage-servers.component';
 import { MsWordComponent } from './ms-word/ms-word.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ReactFormComponent } from './react-form/react-form.component';
 import { UpdateComponent } from './update/update.component';
 
 const myRoutes: Routes = [
@@ -40,6 +41,7 @@ const myRoutes: Routes = [
   },
   { path: 'accounts', component: HomeAccountsComponent },
   { path: 'ms-word', component: MsWordComponent },
+  { path: 'react', component: ReactFormComponent },
   { path: 'servers', component: ManageServersComponent },
   {
     path: 'login',
