@@ -30,6 +30,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { addTokenInterceptorProvider } from './add-token.interceptor';
+import { LoginGuard } from './login.guard';
+import { LogoutGuard } from './logout.guard';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,7 @@ import { addTokenInterceptorProvider } from './add-token.interceptor';
     LoginComponent,
   ],
   imports: [BrowserModule, FormsModule, PLB_ROUTING, HttpClientModule],
-  providers: [addTokenInterceptorProvider],
+  providers: [addTokenInterceptorProvider, LoginGuard, LogoutGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

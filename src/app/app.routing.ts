@@ -4,7 +4,9 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { AddComponent } from './add/add.component';
 import { CvComponent } from './cv/cv.component';
 import { InfosComponent } from './infos/infos.component';
+import { LoginGuard } from './login.guard';
 import { LoginComponent } from './login/login.component';
+import { LogoutGuard } from './logout.guard';
 import { ManageServersComponent } from './manage-servers/manage-servers.component';
 import { MsWordComponent } from './ms-word/ms-word.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -30,7 +32,7 @@ const myRoutes: Routes = [
     path: 'cv',
     children: [
       { path: '', component: CvComponent },
-      { path: 'add', component: AddComponent },
+      { path: 'add', component: AddComponent, canActivate: [LoginGuard] },
       { path: ':id', component: InfosComponent },
       { path: ':id/edit', component: UpdateComponent },
     ],
@@ -38,7 +40,7 @@ const myRoutes: Routes = [
   { path: 'accounts', component: HomeAccountsComponent },
   { path: 'ms-word', component: MsWordComponent },
   { path: 'servers', component: ManageServersComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate: [LogoutGuard] },
   {
     path: 'show-serv',
     loadChildren: () => import('./sub/sub.module').then((m) => m.SubModule),
