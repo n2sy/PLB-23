@@ -12,7 +12,13 @@ export class AuthService {
     return this.http.post(this.link, identifiants);
   }
 
-  seDeconnecter() {}
+  seDeconnecter() {
+    localStorage.removeItem('myToken');
+  }
 
-  estConnecte() {}
+  estConnecte() {
+    let token = localStorage.getItem('myToken');
+    if (token) return true;
+    return false;
+  }
 }
