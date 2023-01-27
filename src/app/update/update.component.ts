@@ -18,13 +18,24 @@ export class UpdateComponent {
   ngOnInit() {
     //console.log(this.actRoute.snapshot.params['id']);
     console.log(this.actRoute.snapshot.paramMap.get('id'));
-    this.updatedCandidat = this.candSer.getCandidatById(
-      this.actRoute.snapshot.paramMap.get('id')
-    );
+    this.candSer
+      .getCandidatByIdAPI(this.actRoute.snapshot.paramMap.get('id'))
+      .subscribe({
+        next: (response) => {
+          this.updatedCandidat = response;
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
   }
 
   submitHandler() {
-    this.candSer.updateCandidat(this.updatedCandidat);
-    this.router.navigateByUrl('/cv');
+    this.candSer.updateCandidatAPI(this.updatedCandidat).subscribe({
+      next: (response) => {
+        alert(response['message']);
+        this.router.navigateByUrl('/cv');
+      },
+    });
   }
 }

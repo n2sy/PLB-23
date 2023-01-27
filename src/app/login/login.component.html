@@ -1,6 +1,7 @@
+<div *ngIf="showError" class="alert alert-danger">Login et/ou mot de passe invalides</div>
 <form #f="ngForm" (ngSubmit)="submitHandler(f)">
     <label for="login">Login</label>
-    <input #inpLogin="ngModel" ngModel required email type="text" class="form-control" id="login" name="login">
+    <input #inpLogin="ngModel" ngModel required email type="text" class="form-control" id="login" name="email">
 
     <div *ngIf="inpLogin.invalid && inpLogin.touched" class="alert alert-danger">Ce champ est obligatoire et est une
         adresse mail</div>
@@ -8,7 +9,7 @@
     <label for="pwd">Mot de passe</label>
     <input ngModel name="password" type="text" class="form-control" id="pwd">
 
-    <div #inpInfos="ngModelGroup" ngModelGroup="infos">
+    <!-- <div #inpInfos="ngModelGroup" ngModelGroup="infos">
         <label for="pr">Profil</label>
         <select [ngModel]="defaultProfil" name="profil" class="form-control" id="pr">
             <option value=""></option>
@@ -36,10 +37,10 @@
 
     <pre>
     {{ f.value | json }}
-    </pre>
+    </pre> -->
 
     <button [disabled]="f.invalid" class="btn btn-primary" type="submit">Submit</button>
-    <button (click)="generatePwd(f)" class="btn btn-warning">Generate Pwd</button>
+    <!-- <button (click)="generatePwd(f)" class="btn btn-warning">Generate Pwd</button>
     <button (click)="generatePwdII(f)" class="btn btn-info">Generate Pwd II</button>
-    <button (click)="onReset(f)" class="btn btn-success">Reset</button>
+    <button (click)="onReset(f)" class="btn btn-success">Reset</button> -->
 </form>

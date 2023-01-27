@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +11,23 @@ import { NgForm } from '@angular/forms';
 export class LoginComponent {
   defaultProfil = 'Fullstack';
   myComment = 'Je suis un ingénieur....';
+  showError = false;
+
+  constructor(private auth: AuthService, private router: Router) {}
 
   submitHandler(f) {
     console.log(f.value);
+    this.auth.seConnecter(f.value).subscribe({
+      next: (response) => {
+        console.log(response);
+        localStorage.setItem('myToken', response['token']);
+        this.router.navigateByUrl('/cv');
+      },
+      error: (err) => {
+        this.showError = true;
+        f.reset();
+      },
+    });
   }
 
   generatePwd(f: NgForm) {

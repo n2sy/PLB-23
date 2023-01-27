@@ -28,6 +28,8 @@ import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { addTokenInterceptorProvider } from './add-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -56,8 +58,8 @@ import { LoginComponent } from './login/login.component';
     NotFoundComponent,
     LoginComponent,
   ],
-  imports: [BrowserModule, FormsModule, PLB_ROUTING],
-  providers: [],
+  imports: [BrowserModule, FormsModule, PLB_ROUTING, HttpClientModule],
+  providers: [addTokenInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

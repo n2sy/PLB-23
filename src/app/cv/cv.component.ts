@@ -24,7 +24,14 @@ export class CvComponent {
 
   ngOnInit() {
     this.firstSer.showInfos();
-    this.tabCandidats = this.candSer.getAllCandidats();
+    this.candSer.getAllCandidatsAPI().subscribe({
+      next: (response) => {
+        this.tabCandidats = response;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   addNewCandidat() {

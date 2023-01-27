@@ -8,20 +8,20 @@ import { ListCandidatsService } from '../services/list-candidats.service';
   styleUrls: ['./liste.component.css'],
 })
 export class ListeComponent {
-  allCandidats: Candidat[] = [];
+  @Input() allCandidats: Candidat[] = [];
   @Output() msgToCv = new EventEmitter();
 
   sendCandToCv(cand) {
     this.msgToCv.emit(cand);
   }
 
-  constructor(private candSer: ListCandidatsService) {}
+  // constructor(private candSer: ListCandidatsService) {}
 
-  ngOnInit() {
-    this.allCandidats = this.candSer.getAllCandidats();
-  }
+  // ngOnInit() {
+  //   this.allCandidats = this.candSer.getAllCandidats();
+  // }
 
-  showCands() {
-    console.log(this.candSer.getAllCandidats());
-  }
+  // showCands() {
+  //   console.log(this.candSer.getAllCandidats());
+  // }
 }

@@ -1,7 +1,7 @@
 <router-outlet></router-outlet>
 <div class="row">
     <div class="col-md-5">
-        <app-liste (msgToCv)="recupererSelectedCandidat($event)"></app-liste>
+        <app-liste (msgToCv)="recupererSelectedCandidat($event)" [allCandidats]="tabCandidats"></app-liste>
         <button (click)="addNewCandidat()" class="btn btn-primary">Add New Candidat</button>
         <button (click)="showCands()" class="btn btn-info">show Cands from CV</button>
     </div>
