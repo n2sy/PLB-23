@@ -4,6 +4,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { AddComponent } from './add/add.component';
 import { CvComponent } from './cv/cv.component';
 import { InfosComponent } from './infos/infos.component';
+import { LoginComponent } from './login/login.component';
 import { ManageServersComponent } from './manage-servers/manage-servers.component';
 import { MsWordComponent } from './ms-word/ms-word.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -37,6 +38,7 @@ const myRoutes: Routes = [
   { path: 'accounts', component: HomeAccountsComponent },
   { path: 'ms-word', component: MsWordComponent },
   { path: 'servers', component: ManageServersComponent },
+  { path: 'login', component: LoginComponent },
   {
     path: 'show-serv',
     loadChildren: () => import('./sub/sub.module').then((m) => m.SubModule),

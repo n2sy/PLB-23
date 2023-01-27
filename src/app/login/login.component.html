@@ -1,0 +1,45 @@
+<form #f="ngForm" (ngSubmit)="submitHandler(f)">
+    <label for="login">Login</label>
+    <input #inpLogin="ngModel" ngModel required email type="text" class="form-control" id="login" name="login">
+
+    <div *ngIf="inpLogin.invalid && inpLogin.touched" class="alert alert-danger">Ce champ est obligatoire et est une
+        adresse mail</div>
+
+    <label for="pwd">Mot de passe</label>
+    <input ngModel name="password" type="text" class="form-control" id="pwd">
+
+    <div #inpInfos="ngModelGroup" ngModelGroup="infos">
+        <label for="pr">Profil</label>
+        <select [ngModel]="defaultProfil" name="profil" class="form-control" id="pr">
+            <option value=""></option>
+            <option value="frontend">Front-end</option>
+            <option value="backend">Back-end</option>
+            <option value="Fullstack">Fullstack</option>
+        </select>
+
+        <label for="com">Commentaire</label>
+        <textarea [(ngModel)]="myComment" class="form-control" name="commentaire" id="com" cols="10"
+            rows="3"></textarea>
+
+        {{ myComment }} <br>
+    </div>
+    <hr>
+
+    <label for="">Gestion d'erreurs</label>
+    <input class="form-control" #exp="ngModel" required minlength="5" pattern="nidhal" ngModel type="text"
+        name="exemple">
+    <div class="alert alert-danger" *ngIf="exp.invalid">
+        <p *ngIf="exp.errors['required']">Ce champ est obligatoire</p>
+        <p *ngIf="exp.errors['minlength']">Le nombre minimum de caractères est 5</p>
+        <p *ngIf="exp.errors['pattern']">Le pattern est "nidhal"</p>
+    </div>
+
+    <pre>
+    {{ f.value | json }}
+    </pre>
+
+    <button [disabled]="f.invalid" class="btn btn-primary" type="submit">Submit</button>
+    <button (click)="generatePwd(f)" class="btn btn-warning">Generate Pwd</button>
+    <button (click)="generatePwdII(f)" class="btn btn-info">Generate Pwd II</button>
+    <button (click)="onReset(f)" class="btn btn-success">Reset</button>
+</form>
