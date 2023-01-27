@@ -22,9 +22,18 @@ export class ListCandidatsService {
     return this.tabCandidats.find((c) => c._id == targetId);
   }
 
-  addCandidat() {
-    this.tabCandidats.push(
-      new Candidat(1, 'NEW', 'CANDIDAT', 22, 'Ingénieur', 'bart.jpeg')
-    );
+  addCandidat(newCand) {
+    newCand._id = this.tabCandidats[this.tabCandidats.length - 1]._id + 1;
+    this.tabCandidats.push(newCand);
+  }
+
+  deleteCandidat(id) {
+    let i = this.tabCandidats.findIndex((c) => c._id == id);
+    this.tabCandidats.splice(i, 1);
+  }
+
+  updateCandidat(uCand) {
+    let i = this.tabCandidats.indexOf(uCand);
+    this.tabCandidats[i] = uCand;
   }
 }
